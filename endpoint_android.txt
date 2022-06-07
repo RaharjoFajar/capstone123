@@ -1,0 +1,122 @@
+Base URL : www.PiknikRek.com/
+a. Query Parameter GET List Wisata: lat(float), long(float)
+
+    Penerapan: 
+    EndPoint = www.PiknikRek.com/wisata 
+
+    @GET("wisata")
+    suspend fun getAllWisata(
+        @Query("lat") lat: Float,
+        @Query("long") long: Float
+    ): WisataResponse
+
+    WisataResponse :
+    {
+        "error" : false,
+        "message" : "Success",
+        "data" : 
+            [
+                {
+                    "id" : 2543,
+                    "name" : "Candi Arjuna",
+                    "address" : "Kabupaten Banjarnegara, Jawa Tengah, Indonesia",
+                    "description" : "Candi Arjuna merupakan salah satu bangunan candi di Kompleks Percandian Arjuna, Dieng. Candi Arjuna diperkirakan sebagai candi tertua, candi ini diperkirakan dibangun pada abad 8 Masehi oleh Dinasti Sanjaya dari Mataram Kuno. Di kompleks ini juga terdapat Candi Semar, Candi Srikandi, Candi Puntadewa, dan Candi Sembadra. Candi Arjuna terletak paling utara dari deretan percandian di kompleks tersebut. Sementara itu, Candi Semar adalah candi perwara atau pelengkap dari Candi Arjuna. Kedua bangunan candi ini saling berhadapan",
+                    "image_avatar" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg",
+                    "images" : 
+                        [
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg",
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg",
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg"
+                        ]
+                },
+                {
+                    "id" : 3382,
+                    "name" : "Telaga Warna",
+                    "address" : "Kabupaten Banjarnegara, Jawa Tengah, Indonesia",
+                    "description" : "Telaga ini merupakan salah satu destinasi wisata andalan Kabupaten Wonosobo.[2] Nama Telaga Warna sendiri diberikan karena keunikan fenomena alam yang terjadi di tempat ini, yaitu warna air dari telaga tersebut yang sering berubah-ubah.",
+                    "image_avatar" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Telaga_Warna_in_Dieng_Plateau.jpg/250px-Telaga_Warna_in_Dieng_Plateau.jpg",
+                    "images" : 
+                        [
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Telaga_Warna_in_Dieng_Plateau.jpg/250px-Telaga_Warna_in_Dieng_Plateau.jpg",
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Telaga_Warna_in_Dieng_Plateau.jpg/250px-Telaga_Warna_in_Dieng_Plateau.jpg",
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Telaga_Warna_in_Dieng_Plateau.jpg/250px-Telaga_Warna_in_Dieng_Plateau.jpg"
+                        ]
+                }
+            ]
+    }
+
+b. Query Parameter GET Detail Wisata: id (Integer)
+    
+    Penerapan: 
+    EndPoint = www.PiknikRek.com/detail-wisata
+
+    @GET("detail-wisata")
+    suspend fun getDetailWisata(
+        @Query("id") id: Integer
+    ): DetailWisataResponse
+
+    DetailWisataResponse :
+    {
+        "error" : false,
+        "message" : "Success",
+        "result" : 
+            {
+                "id" : 2543,
+                "name" : "Candi Arjuna",
+                "address" : "Kabupaten Banjarnegara, Jawa Tengah, Indonesia",
+                "description" : "Candi Arjuna merupakan salah satu bangunan candi di Kompleks Percandian Arjuna, Dieng. Candi Arjuna diperkirakan sebagai candi tertua, candi ini diperkirakan dibangun pada abad 8 Masehi oleh Dinasti Sanjaya dari Mataram Kuno. Di kompleks ini juga terdapat Candi Semar, Candi Srikandi, Candi Puntadewa, dan Candi Sembadra. Candi Arjuna terletak paling utara dari deretan percandian di kompleks tersebut. Sementara itu, Candi Semar adalah candi perwara atau pelengkap dari Candi Arjuna. Kedua bangunan candi ini saling berhadapan",
+                "image_avatar" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg",
+                "images" : 
+                    [
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg",
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg",
+                        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg"
+                    ]
+            }
+    }
+
+c. Part Parameter POST predict wisata: image: (File/MultipartBody.Part)
+
+    Penerapan :
+    EndPoint = www.PiknikRek.com/predict
+
+    @Multipart
+    @POST("predict")
+    suspend fun predictImage(
+        @Part("image") image: MultipartBody.Part
+    ): PredictResponse
+
+    PredictResponse :
+    {
+        "error" : false,
+        "message" : "Success",
+        "data" : 
+            [
+                {
+                    "id" : 2543,
+                    "name" : "Candi Arjuna",
+                    "address" : "Kabupaten Banjarnegara, Jawa Tengah, Indonesia",
+                    "description" : "Candi Arjuna merupakan salah satu bangunan candi di Kompleks Percandian Arjuna, Dieng. Candi Arjuna diperkirakan sebagai candi tertua, candi ini diperkirakan dibangun pada abad 8 Masehi oleh Dinasti Sanjaya dari Mataram Kuno. Di kompleks ini juga terdapat Candi Semar, Candi Srikandi, Candi Puntadewa, dan Candi Sembadra. Candi Arjuna terletak paling utara dari deretan percandian di kompleks tersebut. Sementara itu, Candi Semar adalah candi perwara atau pelengkap dari Candi Arjuna. Kedua bangunan candi ini saling berhadapan",
+                    "image_avatar" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg",
+                    "images" : 
+                        [
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg",
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg",
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Candi_Arjuna_side_view.jpg/240px-Candi_Arjuna_side_view.jpg"
+                        ]
+                },
+                {
+                    "id" : 3382,
+                    "name" : "Telaga Warna",
+                    "address" : "Kabupaten Banjarnegara, Jawa Tengah, Indonesia",
+                    "description" : "Telaga ini merupakan salah satu destinasi wisata andalan Kabupaten Wonosobo.[2] Nama Telaga Warna sendiri diberikan karena keunikan fenomena alam yang terjadi di tempat ini, yaitu warna air dari telaga tersebut yang sering berubah-ubah.",
+                    "image_avatar" : "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Telaga_Warna_in_Dieng_Plateau.jpg/250px-Telaga_Warna_in_Dieng_Plateau.jpg",
+                    "images" : 
+                        [
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Telaga_Warna_in_Dieng_Plateau.jpg/250px-Telaga_Warna_in_Dieng_Plateau.jpg",
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Telaga_Warna_in_Dieng_Plateau.jpg/250px-Telaga_Warna_in_Dieng_Plateau.jpg",
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Telaga_Warna_in_Dieng_Plateau.jpg/250px-Telaga_Warna_in_Dieng_Plateau.jpg"
+                        ]
+                }
+            ]
+    }

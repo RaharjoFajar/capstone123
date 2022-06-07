@@ -1,0 +1,10 @@
+1. App Engine
+	Deploy NodeJS
+2. Cloud SQL
+	Deploy Database
+3. Cloud Function
+	
+4. Google Cloud Storage
+	Gambar statis, file statis
+
+5. Domain pi
